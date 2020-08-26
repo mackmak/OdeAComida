@@ -1,0 +1,34 @@
+﻿@model IPagedList<ListViewModelRestaurante>
+
+    @{
+        ViewBag.Title = "Home Page";
+    }
+
+    @*@Html.Label((string)ViewBag.Message)*@
+
+    <form method="get" action="@Url.Action("Index")"
+          data-oac-ajax="true"
+          data-oac-target="#listaRestaurantes">
+        @*listaRestaurantes é o elemento DOM que será manipulado na partial view*@
+
+        <!--<input type="search" name="term"
+               data-oac-autocomplete="@Url.Action("AutoComplete")" />-->@*MVC combina a variavel da requisição pelo nome do action*@
+            <!--<input type="submit" value="Buscar Pelo Nome" />-->
+            @*<input type="hidden" name="teste" value="123"/>*@
+        </form>
+
+        @*@using(Ajax.BeginForm(
+                new AjaxOptions
+                {
+                    HttpMethod = "get",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId="listaRestaurantes"
+                }))
+            {
+                <input type="search" name="term"/>
+                <input type="submit" value="Buscar Pelo Nome"/>
+            }*@
+
+
+        @Html.Partial("_Restaurantes", Model)
+

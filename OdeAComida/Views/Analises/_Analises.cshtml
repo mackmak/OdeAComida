@@ -1,0 +1,34 @@
+﻿@model IEnumerable<OdeAComida.Models.AnaliseRestaurante>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corpo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeAnalista)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corpo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeAnalista)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+        </td>
+    </tr>
+}
+
+</table>

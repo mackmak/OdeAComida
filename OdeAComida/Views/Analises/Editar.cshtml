@@ -1,0 +1,55 @@
+﻿@model OdeAComida.Models.AnaliseRestaurante
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)@*Caso seja definido como "false", exibirá todos os erros*@
+
+    <fieldset>
+        <legend>Editar Análise</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nota)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nota)
+            @Html.ValidationMessageFor(model => model.Nota)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Corpo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Corpo)
+            @Html.ValidationMessageFor(model => model.Corpo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NomeAnalista)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NomeAnalista)
+            @Html.ValidationMessageFor(model => model.NomeAnalista)
+        </div>
+
+        @Html.HiddenFor(model => model.RestauranteId)
+
+        <p>
+            <input type="submit" value="Alterar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+}
